@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Tema porcarii
+    </title>
+</head>
+
+<body>
+    <div id="div1" style="background-color: red">
+        Salot!Apasa pe mine
+    </div>
+    <br>
+    <div id="div2">
+        <button id="botton1" onclick="addDiv()">Adauga alt div</button>
+        <button id="botton2" onclick="removeDiv()">Sterge div</button>
+    </div>
+    <script type="text/javascript">
+        var ok = 0
+        console.log("test1")
+        onPageLoad()
+        function onPageLoad() {
+            console.log("test2")
+            console.info("S-a loaduit")
+            var div1 = document.getElementById("div1")
+            div1.addEventListener("click", function (e) {
+                div1.append(" Maestre")
+                var colors = ["red", "green", "blue", "purple", "orange", "yellow", "pink"];
+                var x = Math.floor(Math.random() * 7)
+                div1.style.backgroundColor = colors[x]
+            })
+            div1.addEventListener("mouseenter", function (e) {
+                div1.style.cursor = "pointer";
+
+            })
+
+            var button1 = document.getElementById("botton1")
+            button1.setAttribute("style", "background-color:green")
+            botton1.style.cursor = "grab"
+            var button2 = document.getElementById("botton2")
+            button2.setAttribute("style", "background-color:blue")
+            button2.style.cursor = "grab"
+        };
+        function addDiv() {
+            var div2 = document.getElementById("div2")
+            var div3 = document.createElement("div")
+            div3.setAttribute("id", "div3")
+            div3.setAttribute("style", "background-color:purple")
+            div3.append("Tocmai ai creat un div")
+            ok = 1
+            div2.appendChild(div3)
+            var colors = ["red", "green", "blue", "purple", "orange", "yelow", "pink"];
+            var x = Math.floor(Math.random() * 7)
+            setTimeout(function (e) {
+                div3.style.backgroundColor = colors[x]
+            }, 5000)
+        }
+        function removeDiv() {
+            var div3 = document.getElementById("div3")
+            var div2 = document.getElementById("div2")
+            if (ok != 0) {
+                div2.removeChild(div3)
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
